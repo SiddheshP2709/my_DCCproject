@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div style="text-align: center; background-color: #007bff; color: #fff; padding: 10px;">
+        <h1 style="color: white">Electoral Bond Data</h1>
+    </div>
+    
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .search-section, .analysis-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .search-section h2, .analysis-section h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        input[type="text"], select, button {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px);
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .chart-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .chart {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Feature 1: Robust Search Functionality -->
+        <div class="search-section">
+            <h2>Search Records</h2>
+            <form action="searchForm1">
+                <input type="text" id="searchInput1" placeholder="Enter the query:">
+                <select id="filterAttribute1">
+                    <option value="bond_number">Bond Number</option>
+                    <option value="date">Date</option>
+                    <option value="party">Political Party</option>
+                    <!-- Add more options for filtering -->
+                </select>
+                <button type="submit">Search</button>
+            </form>
+            <div id="searchResults1">
+                <!-- Search results will be displayed here -->
+            </div>
+        </div>
+        
+        <!-- Feature 2: Company/Individual Bond Purchases per Year -->
+        <div class="analysis-section">
+            <h2>Bonds purchased by purchaser per year</h2>
+            <div class="search-section">
+                <h3>Search</h3>
+                <form id="searchForm2">
+                    <input type="text" id="searchInput2" placeholder="Enter the purchaser name:">
+                    <select id="filterAttribute2">
+                        <option value="bond_number">Purchaser 1</option>
+                        <option value="date">Purchaser 2</option>
+                        <option value="party">Purchaser 3</option>
+                        <!-- Add more options for filtering -->
+                    </select>
+                    <button type="submit">Search</button>
+                </form>
+                <div id="searchResults2">
+                    <!-- Search results will be displayed here -->
+                </div>
+            </div>
+            <div id="companyAnalysisChart" class="chart-container">
+                <!-- Bar chart for company/individual bond purchases per year will be displayed here -->
+            </div>
+        </div>
+        
+        <!-- Feature 3: Political Party Bond Details per Year -->
+        <div class="analysis-section">
+            <h2>Political Party Bond Details per Year</h2>
+            <div class="search-section">
+                <h3>Search</h3>
+                <form id="searchForm3">
+                    <input type="text" id="searchInput3" placeholder="Enter the political party name: ">
+                    <select id="filterAttribute3">
+                        <option value="bond_number"> Party 1</option>
+                        <option value="date">Party 2</option>
+                        <option value="party">Party 3</option>
+                        <!-- Add more options for filtering -->
+                    </select>
+                    <button type="submit">Search</button>
+                </form>
+                <div id="searchResults3">
+                    <!-- Search results will be displayed here -->
+                </div>
+            </div>
+            <div id="partyAnalysisChart" class="chart-container">
+                <!-- Bar chart for political party bond details per year will be displayed here -->
+            </div>
+        </div>
+        
+        <!-- Feature 4: Donations by Companies to Political Parties -->
+        <div class="analysis-section">
+            <h2>Donations by Companies to Political Parties:</h2>
+            <div class="search-section">
+                <h3>Search</h3>
+                <form id="searchForm4">
+                    <select id="filterAttribute4">
+                        <option value="bond_number">Purchaser 1</option>
+                        <option value="date">Purchaser 2</option>
+                        <option value="party">Purchaser 3</option>
+                        <!-- Add more options for filtering -->
+                    </select>
+                    <button type="submit">Search</button>
+                </form>
+                <div id="searchResults4">
+                    <!-- Search results will be displayed here -->
+                </div>
+            </div>
+            <div id="donationAnalysis" class="chart-container">
+                <!-- Donation details will be displayed here -->
+            </div>
+        </div>
+        
+        <!-- Feature 5: Donations by Parties from Companies -->
+        <div class="analysis-section">
+            <h2>Donations by Parties from Companies</h2>
+            <div class="search-section">
+                <h3>Select the company:</h3>
+                <form id="searchForm5">
+                    <select id="filterAttribute5">
+                        <option value="Party 1">Party 1</option>
+                        <option value="Party 2">Party 2</option>
+                        <option value="Party 3">Party 3</option>
+                    </select>
+                    <button type="submit">Search</button>
+                </form>
+                <div id="searchResults5">
+                    <!-- Search results will be displayed here -->
+                </div>
+            </div>
+            <div id="donationFromCompany" class="chart-container">
+                <!-- Donation details will be displayed here -->
+            </div>
+        </div>
+        
+        <!-- Feature 6: Pie Chart for Total Donations to All Parties -->
+        <div class="analysis-section">
+            <h2>Total Donations to All Parties</h2>
+            <div class="search-section">
+                <h3>Enter the name of the purchaser:</h3>
+                <form id="searchForm6">
+                    <input type="text" id="searchInput6" placeholder="Enter search query">
+
+                    <button type="submit">Search</button>
+                </form>
+                <div id="searchResults6">
+                    <!-- Search results will be displayed here -->
+                </div>
+            </div>
+            <div id="totalDonationChart" class="chart-container">
+                <!-- Pie chart for total donations to all parties will be displayed here -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
